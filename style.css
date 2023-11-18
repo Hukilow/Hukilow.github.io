@@ -118,20 +118,26 @@ h3 {
     background-color: #f1f2f6;
     padding:  1px 2%;
 }
+
+
 #Description h2 {
     padding-top: 60px;
 }
 #Scythe {
     background: url(media/ocean.jpg);
+    border-radius: 10px;
 }
 #Sword {
     background: url(media/chateau.JPG);
+    border-radius: 10px;
 }
 #Hammer {
     background: url(media/phare.JPG);
+    border-radius: 10px;
 }
 #Scepter {
     background: url(media/vignes.jpg);
+    border-radius: 10px;
 }
 #Description li {
     margin: 65px 100px 0 100px;
