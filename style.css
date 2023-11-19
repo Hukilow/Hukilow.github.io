@@ -64,8 +64,8 @@ nav{
 .lines {
     display: flex;
     margin-top: 10px;
-    flex-direction: column; /* Aligne les lignes verticalement */
-    align-items: center; /* Centre les lignes horizontalement */
+    flex-direction: column;
+    align-items: center;
     transition: left 1s ease;
 }
 
@@ -83,15 +83,23 @@ nav{
 }
 
 header li {
-    font-size: 1.2em;
+    font-size: 2em;
 }
 header li a {
     text-decoration: none;
     display: block;
     text-align: center;
-    padding: 18px 16px;
+    padding: 25px 16px;
     color:white;
 }
+
+#AboutMe:hover,#MyProjects:hover{
+    background-color: black;
+    transition:  0.6s ease;
+    color: green;
+}
+
+
 #Home {
     font-family: 'Dancing Script', 'cursive';
     font-weight: bold;
@@ -104,4 +112,44 @@ h1 {
     margin-top: 0%;
     margin-left: 35%;
     font-size: 5em;
+}
+
+#MyProjects:hover .dropdown-list,#MyProjects:hover .dropdown-list li {
+    display: block;
+    opacity: 1;
+    max-height: 220px;
+
+}
+
+.dropdown-list {
+    display: none;
+    position: absolute;
+    list-style: none;
+    opacity: 0;
+    max-height: 0px;
+    left: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color: black;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+
+}
+
+.dropdown-list li {
+    font-family: 'Advent Pro', sans-serif;
+    padding: 10px;
+    margin-right: auto;
+    cursor: pointer;
+    transition:  0.3s ease;
+    font-size: 1em;
+    text-align: center;
+    opacity: 0;
+    max-height: 0;
+
+}
+
+.dropdown-list li:hover {
+    background-color: blueviolet;
+    color: black;
+    font-weight: bolder;
 }
