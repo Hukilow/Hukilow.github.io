@@ -1,26 +1,52 @@
-<!-- index.hmtl -->
+<!-- index.html -->
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link href="https://api.fontshare.com/v2/css?f[]=satoshi@400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-    <h1>Bienvenue sur le test de ....</h1>
-    <a href="test.html">Commencer</a>
+  <h1>Quel est ton éco-profil ?</h1>
+  <div>
+    <p id="description"> Explorateur aventureux, jardinier en herbe, admirateur de la faune, méditateur naturel, artiste
+      botanique, citadin vert, écologiste engagé, explorateur contemplatif, curieux des sciences naturelles ou bien un
+      apprenti explorateur ? Découvre ton profil et explore ton lien avec la nature en démarrant le test !
+    </p>
+  </div>
+  <div class="image">
+    <img src="img/quatre.jpg" alt="first">
+  </div>
+  <div>
+    <a id="commencer" href="test.html">Commencer le test</a>
+  </div>
+
+  <div id="user-info" style="display: none;">
+    <nav>
+      <ul>
+        <li id=username><a href="#Home">Username</a></li>
+        <li id="logout"><a href="/logout">Se déconnecter</a></li>
+      </ul>
+    </nav>
+    <!-- Contenu pour l'utilisateur connecté -->
+  </div>
+
+  <div id="login-signup" style="display: block;">
+    <!-- Contenu pour l'utilisateur non connecté -->
+    <nav>
+      <ul>
+        <li id="login"><a href="login.html">Connexion</a></li>
+        <li id="signup"><a href="signup.html">S'inscrire</a></li>
+      </ul>
+    </nav>
+  </div>
 
 
-    <% if (user) { %>
-      <p>Bienvenue <%= user.username %>!</p>
-      <a href="/logout">Déconnexion</a>
-    <% } else { %>
-      <!-- Si l'utilisateur n'est pas connecté -->
-      <a href="/login">Connexion</a>
-    <% } %>
-    <script src="index.js"></script>
-  
+
+  <script src="index.js"></script>
 </body>
-</html>

@@ -9,13 +9,13 @@
 </head>
 
 <body>
-  <% if (user) { %>
-    <p>Bienvenue <%= user.username %>!</p>
-    <a href="/logout">Déconnexion</a>
-    <% } else { %>
-      <!-- Si l'utilisateur n'est pas connecté -->
-      <a href="/login">Connexion</a>
-      <% } %>
+  <form action="/login.html" method="post">
+    <label for="Nom d'utilisateur">Username:</label>
+    <input type="text" name="Nom d'utilisateur" required>
+    <label for="Mot de passe">Password:</label>
+    <input type="Mot de passe" name="Mot de passe" required>
+    <button type="submit">Login</button>
+  </form>
 </body>
 
 </html>

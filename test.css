@@ -1,60 +1,173 @@
-* {
-    box-sizing: border-box;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    list-style: none;
-  }
-  
-    body {
-    text-align: center;
-    margin: 0;
-    display: flex;
-    min-height: 100vh;
-    flex-direction: column;
-  }
-
-h2{
-  display: inline-block;
-  padding: 10px;
-  margin: 25px;
-  border: 3px solid red;
-  border-radius: 15px;
+@font-face {
+  font-family: 'Paragon-Regular';
+  src: url('fonts/Paragon-Regular.otf') format('opentype');
 }
 
-  #question-container {
-    margin-top: 50px;
-  }
-
-  #question-container div {
-    display: none;
-  }
-
-  #question-container div.active {
-    display: block;
-  }
-
-  #question-container .slider-container{
-    display: block;
-  }
-
-  #question-container .output-container{
-    margin: 100px;
-    display: block;
-    z-index: 2;
-  }
+@font-face {
+  font-family: 'Paragonitalic-Regular';
+  src: url('fonts/Paragonitalic-Regular.otf') format('opentype');
+}
 
 
+* {
+  box-sizing: border-box;
+  font-family: 'Paragon-Regular', sans-serif;
+  list-style: none;
+}
 
-  .slider-container {
-    position: relative;
-    width: 20%;
-    margin: 50px auto;
-    background-color: lightgray;
-    z-index: 1;
-  }
+body {
+  text-align: center;
+  margin: 0;
+  min-height: 100vh;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+#question-container h1 {
+  font-size: 40px;
+}
+
+h2 {
+  display: inline-block;
+  padding: 5px 15px 0px 15px;
+  margin: 25px;
+  color: white;
+  background-color: #000000;
+  border: 0px solid #000000;
+  border-radius: 40px;
+}
+
+#question-container {
+  margin-top: 50px;
+}
+
+#question-container div {
+  display: none;
+}
+
+#question-container div.active {
+  display: block;
+
+}
+
+#question-container .slider-container {
+  display: block;
+}
+
+#question-container .output-container {
+  margin: 100px;
+  display: block;
+  z-index: 2;
+}
 
 
 
-  input[type="range"] {
-    width: 100%;
-    margin-top: 20px;
-  }
+.slider-container {
+  position: relative;
+  width: 20%;
+  margin: 50px auto;
+  background-color: lightgray;
+  z-index: 1;
+}
+
+input[type="range"] {
+  -webkit-appearance: none;
+  /* Remove default styles */
+  width: 100%;
+  height: 10px;
+  /* Specify the height of the track */
+  background: transparent;
+  /* Set a transparent background to make thumb customization possible */
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 20px;
+  height: 20px;
+  background-color: green;
+  border-radius: 50%;
+  cursor: pointer;
+  font-family: 'segoe-ui-emoji-normal', sans-serif;
+  /* Utiliser une police qui inclut le caractère de fleur */
+  content: '\2741';
+  /* Code Unicode pour une fleur */
+  z-index: 3;
+}
+
+
+input[type="range"] {
+  width: 100%;
+  margin-top: 20px;
+}
+
+
+.question {
+  text-align: center;
+
+}
+
+.question button {
+  margin-left: 25%;
+  display: block;
+  margin-top: 10px;
+  color: black;
+  background-color: #ffffff;
+  border: 1px solid #000000;
+  border-radius: 40px;
+  padding: 10px 2%;
+  font-size: 20px;
+  min-width: 50%;
+  transition: transform 0.2s;
+}
+
+.question button.selected {
+  background-color: black;
+  color: white;
+  transform: scale(1.1);
+}
+
+.question button:hover {
+  background-color: #000000;
+  color: #ffffff;
+
+}
+
+.question .confirmer {
+  margin-left: 44%;
+  margin-top: 10%;
+  align-items: center;
+  justify-content: center;
+  color: black;
+  background-color: #ffffff;
+  border: 1px solid #000000;
+  border-radius: 40px;
+  padding: 10px 2%;
+  font-size: 25px;
+  min-width: auto;
+  transition: transform 0.2s;
+  cursor: not-allowed;
+}
+
+.question .confirmerslider {
+  margin-left: 44%;
+  margin-top: 10%;
+  align-items: center;
+  justify-content: center;
+  color: black;
+  background-color: #ffffff;
+  border: 1px solid #000000;
+  border-radius: 40px;
+  padding: 10px 2%;
+  font-size: 25px;
+  min-width: auto;
+  transition: transform 0.2s;
+}
+
+
+.confirmer:hover,
+.confirmerslider:hover {
+  transform: scale(1.1);
+  background-color: black;
+  color: white;
+}

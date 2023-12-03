@@ -1,54 +1,51 @@
-const express = require('express');
-const path = require('path');
-const app = express();
-// ...other code...
-// Serve static files from the 'public' directory where 'index.html' is located.
-app.use(express.static(path.join(__dirname, './')));
-
 //index.js
 
-// async function fetchItems() {
-//   try {
-//     // Fetch the items from the API endpoint
-//     let response = await fetch('/api/items');
-//     let data = await response.json();
-//     // Let's log the data to see what items we got from the database
-//     console.log(data);
-//   } catch (error) {
-//     console.error(error);
-//   }
-// }
-// fetchItems();
 
-async function createUser(username, userData) {
-  try {
-    const response = await fetch('/api/users', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({ username, userData })
+// Fonction pour vérifier l'état de connexion et afficher/masquer les éléments en conséquence
+function updateUI(user) {
+  const userDiv = document.getElementById('user-info');
+  const loginSignupDiv = document.getElementById('login-signup');
+
+  if (user) {
+    // L'utilisateur est connecté
+    const usernameElement = document.getElementById('username');
+    const logoutElement = document.getElementById('logout');
+
+    // Afficher le nom d'utilisateur dans la barre de navigation
+    usernameElement.textContent = user.username;
+
+    // Afficher la section utilisateur connecté
+    userDiv.style.display = 'block';
+    loginSignupDiv.style.display = 'none';
+
+    // Ajouter un gestionnaire d'événements pour le lien de déconnexion
+    logoutElement.addEventListener('click', () => {
+      // Effectuer des actions de déconnexion côté client si nécessaire
+
+      // Rediriger l'utilisateur vers la route de déconnexion côté serveur
+      window.location.href = "/logout";
     });
-    if (response.ok) {
-      console.log('User saved successfully.');
-    } else {
-      console.error('Failed to save user.');
-    }
-  } catch (error) {
-    console.error(error);
+  } else {
+    // L'utilisateur n'est pas connecté
+    userDiv.style.display = 'none';
+    loginSignupDiv.style.display = 'block';
   }
 }
 
-async function fetchUser(username) {
-  try {
-    const response = await fetch(`/api/users/${username}`);
-    if (response.ok) {
-      const data = await response.json();
-      console.log('User data:', data);
-    } else {
-      console.error('User not found.');
-    }
-  } catch (error) {
-    console.error(error);
-  }
+// Exemple: appel à updateUI avec un utilisateur fictif (remplacez-le par votre logique d'authentification)
+const user = { username: 'Hukilow' };
+updateUI(user);
+
+// Fonction pour déconnecter l'utilisateur côté client
+function logout() {
+  // Effectuez des actions de déconnexion côté client si nécessaire
+
+  // Redirigez l'utilisateur vers la page de déconnexion côté serveur
+  window.location.href = "/logout";
+}
+
+// Exemple : associez la fonction logout à un élément HTML (par exemple, un bouton de déconnexion)
+const logoutButton = document.getElementById('logout-button');
+if (logoutButton) {
+  logoutButton.addEventListener('click', logout);
 }
