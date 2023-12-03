@@ -1,3 +1,5 @@
+<!-- index.hmtl -->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,6 +13,14 @@
     <a href="test.html">Commencer</a>
 
 
+    <% if (user) { %>
+      <p>Bienvenue <%= user.username %>!</p>
+      <a href="/logout">Déconnexion</a>
+    <% } else { %>
+      <!-- Si l'utilisateur n'est pas connecté -->
+      <a href="/login">Connexion</a>
+    <% } %>
     <script src="index.js"></script>
+  
 </body>
 </html>
