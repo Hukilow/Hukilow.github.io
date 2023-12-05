@@ -33,8 +33,8 @@ function updateUI(user) {
 }
 
 // Exemple: appel à updateUI avec un utilisateur fictif (remplacez-le par votre logique d'authentification)
-const user = { username: 'Hukilow' };
-updateUI(user);
+//const user = { username: 'Hukilow' };
+//updateUI(user);
 
 // Fonction pour déconnecter l'utilisateur côté client
 function logout() {
@@ -49,3 +49,31 @@ const logoutButton = document.getElementById('logout-button');
 if (logoutButton) {
   logoutButton.addEventListener('click', logout);
 }
+
+
+function toggleMenu() {
+  const menu = document.querySelector('.menu');
+  menu.classList.toggle('active');
+  const lines = document.querySelector('.lines');
+  lines.classList.toggle('active');
+}
+
+function toggleList(list) {
+  var list = document.getElementById(list);
+  list.classList.toggle("hidden");
+}
+
+let prevScrollPos = window.pageYOffset;
+
+window.onscroll = function() {
+  const currentScrollPos = window.pageYOffset;
+
+  if (prevScrollPos > currentScrollPos) {
+    document.getElementById("navbar").style.top = "0";
+  } else {
+    document.getElementById("navbar").style.top = "-80px"; // Ajustez la valeur en fonction de la hauteur de votre barre de navigation
+  }
+
+  prevScrollPos = currentScrollPos;
+};
+

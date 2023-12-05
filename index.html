@@ -16,8 +16,11 @@
   <div>
     <p id="description"> Explorateur aventureux, jardinier en herbe, admirateur de la faune, méditateur naturel, artiste
       botanique, citadin vert, écologiste engagé, explorateur contemplatif, curieux des sciences naturelles ou bien un
-      apprenti explorateur ? Découvre ton profil et explore ton lien avec la nature en démarrant le test !
+      apprenti explorateur ?
     </p>
+  </div>
+  <p id="description"> Explore ton lien avec la nature en découvrant ton profil !
+  </p>
   </div>
   <div class="image">
     <img src="img/quatre.jpg" alt="first">
@@ -38,15 +41,33 @@
 
   <div id="login-signup" style="display: block;">
     <!-- Contenu pour l'utilisateur non connecté -->
-    <nav>
-      <ul>
+    <nav id="navbar">
+      <ul class="droite">
         <li id="login"><a href="login.html">Connexion</a></li>
         <li id="signup"><a href="signup.html">S'inscrire</a></li>
       </ul>
+      <div class="lines" onclick="toggleMenu()">
+        <div id="firstline"></div>
+        <div id="secondline"></div>
+        <div id="thirdline"></div>
+      </div>
+      <div class="menu">
+        <ul>
+          <li id="Home"><a href="#Home">Accueil</a></li>
+          <li id="profils"><a href="#profils" onclick="toggleList('allprofils')">Les profils</a>
+            <ul id="allprofils" class="hidden">
+              <li><a href="#">Jardinier en herbe</a></li>
+              <li><a href="#">Explorateur contemplatif</a></li>
+              <li><a href="#">Méditateur naturel</a></li>
+            </ul>
+          </li>
+          <li id="Activities"><a href="#">Activités</a></li>
+          <li id="Podcasts"><a href="#">Podcasts</a></li>
+          <li id="Lectures"><a href="#">Lectures</a></li>
+          <li id="Reportages"><a href="#">Reportages</a></li>
+        </ul>
+      </div>
     </nav>
   </div>
-
-
-
   <script src="index.js"></script>
 </body>

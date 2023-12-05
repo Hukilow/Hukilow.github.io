@@ -15,14 +15,25 @@
     <div class="question active" data-question="question1">
       <h2>1/25</h2>
       <h1> Dans quel milieu vis-tu ? </h1>
-      <button onclick="selectButton(this)">Urbain : en ville, entouré de bâtiments et
+      <button
+        onclick="selectButton(this, [['Explorateur_aventureux',2],['Jardinier_en_herbe',2],['Admirateur_de_la_faune',2],['Méditateur_naturel',2],['Artiste_botanique',2],['Explorateur_contemplatif',2],['Citadin_vert',3],['Écologiste_engagé',2],['Curieux_des_sciences_naturelles',2],['Apprenti_explorateur',2]])">Urbain
+        : en ville, entouré de
+        bâtiments et
         d'infrastructures</button>
-      <button onclick="selectButton(this)">Suburbain : en périphérie urbaine, entre ville et
+      <button
+        onclick="selectButton(this,[['Explorateur_aventureux',2],['Jardinier_en_herbe',2],['Admirateur_de_la_faune',2],['Méditateur_naturel',2],['Artiste_botanique',2],['Explorateur_contemplatif',2],['Citadin_vert',3],['Écologiste_engagé',2],['Curieux_des_sciences_naturelles',2],['Apprenti_explorateur',2]])">Suburbain
+        : en périphérie urbaine,
+        entre ville et
         campagne</button>
-      <button onclick="selectButton(this)">Rural : à la campagne, entouré de champs et d'espaces
+      <button
+        onclick="selectButton(this,[['Explorateur_aventureux',3],['Jardinier_en_herbe',3],['Admirateur_de_la_faune',3],['Méditateur_naturel',3],['Artiste_botanique',3],['Explorateur_contemplatif',3],['Citadin_vert',0],['Écologiste_engagé',3],['Curieux_des_sciences_naturelles',3],['Apprenti_explorateur',3]])">Rural
+        : à la campagne, entouré de
+        champs et d'espaces
         ouverts.</button>
-      <button onclick="selectButton(this)">Autre </button>
-      <button class="confirmer" onclick="nextQuestion('question1', 'question2')" disabled>Confirmer</button>
+      <button
+        onclick="selectButton(this,[['Explorateur_aventureux',2],['Jardinier_en_herbe',2],['Admirateur_de_la_faune',2],['Méditateur_naturel',2],['Artiste_botanique',2],['Explorateur_contemplatif',2],['Citadin_vert',2],['Écologiste_engagé',2],['Curieux_des_sciences_naturelles',2],['Apprenti_explorateur',2]])">Autre
+      </button>
+      <button class="confirmer" onclick="nextQuestion('question1', 'question2');" disabled>Confirmer</button>
     </div>
 
 
@@ -39,20 +50,31 @@
     <div class="question" data-question="question3">
       <h2>3/25</h2>
       <h1> Laquelle de ces particularités te correspond le mieux ? <h1>
-          <button onclick="selectButton(this)">Observateur</button>
-          <button onclick="selectButton(this)">Aventureux</button>
-          <button onclick="selectButton(this)">Curieux</button>
-          <button onclick="selectButton(this)">Créatif</button>
+          <button
+            onclick="selectButton(this,[['Explorateur_aventureux',1],['Jardinier_en_herbe',1],['Admirateur_de_la_faune',3],['Méditateur_naturel',2],['Artiste_botanique',2],['Explorateur_contemplatif',3],['Citadin_vert',1],['Écologiste_engagé',1],['Curieux_des_sciences_naturelles',2],['Apprenti_explorateur',1]])">Observateur</button>
+          <button
+            onclick="selectButton(this,[['Explorateur_aventureux',3],['Jardinier_en_herbe',1],['Admirateur_de_la_faune',2],['Méditateur_naturel',0],['Artiste_botanique',1],['Explorateur_contemplatif',2],['Citadin_vert',1],['Écologiste_engagé',2],['Curieux_des_sciences_naturelles',1],['Apprenti_explorateur',1]])">Aventureux</button>
+          <button
+            onclick="selectButton(this,[['Explorateur_aventureux',2],['Jardinier_en_herbe',2],['Admirateur_de_la_faune',3],['Méditateur_naturel',1],['Artiste_botanique',2],['Explorateur_contemplatif',2],['Citadin_vert',1],['Écologiste_engagé',2],['Curieux_des_sciences_naturelles',3],['Apprenti_explorateur',2]])">Curieux</button>
+          <button
+            onclick="selectButton(this,[['Explorateur_aventureux',1],['Jardinier_en_herbe',1],['Admirateur_de_la_faune',1],['Méditateur_naturel',1],['Artiste_botanique',3],['Explorateur_contemplatif',1],['Citadin_vert',1],['Écologiste_engagé',1],['Curieux_des_sciences_naturelles',1],['Apprenti_explorateur',1]])">Créatif</button>
           <button class="confirmer" onclick="nextQuestion('question3', 'question4')" disabled>Confirmer</button>
     </div>
 
     <div class="question" data-question="question4">
       <h2>4/25</h2>
       <h1> Quelle est ton expérience en jardinage ? <h1>
-          <button onclick="selectButton(this)">Jardinier expérimenté </button>
-          <button onclick="selectButton(this)">Jardinier passionné</button>
-          <button onclick="selectButton(this)">Amateur</button>
-          <button onclick="selectButton(this)">Aucune expérience </button>
+          <button
+            onclick="selectButton(this,[['Explorateur_aventureux',1],['Jardinier_en_herbe',3],['Admirateur_de_la_faune',1],['Méditateur_naturel',1],['Artiste_botanique',1],['Explorateur_contemplatif',1],['Citadin_vert',1],['Écologiste_engagé',2],['Curieux_des_sciences_naturelles',1],['Apprenti_explorateur',0]])">Jardinier
+            expérimenté </button>
+          <button
+            onclick="selectButton(this,[['Explorateur_aventureux',1],['Jardinier_en_herbe',3],['Admirateur_de_la_faune',1],['Méditateur_naturel',1],['Artiste_botanique',1],['Explorateur_contemplatif',1],['Citadin_vert',1],['Écologiste_engagé',2],['Curieux_des_sciences_naturelles',1],['Apprenti_explorateur',1]])">Jardinier
+            passionné</button>
+          <button
+            onclick="selectButton(this,[['Explorateur_aventureux',1],['Jardinier_en_herbe',1],['Admirateur_de_la_faune',1],['Méditateur_naturel',1],['Artiste_botanique',3],['Explorateur_contemplatif',1],['Citadin_vert',1],['Écologiste_engagé',1],['Curieux_des_sciences_naturelles',1],['Apprenti_explorateur',1]])">Amateur</button>
+          <button
+            onclick="selectButton(this,[['Explorateur_aventureux',1],['Jardinier_en_herbe',1],['Admirateur_de_la_faune',1],['Méditateur_naturel',1],['Artiste_botanique',3],['Explorateur_contemplatif',1],['Citadin_vert',1],['Écologiste_engagé',1],['Curieux_des_sciences_naturelles',1],['Apprenti_explorateur',1]])">Aucune
+            expérience </button>
           <button class="confirmer" onclick="nextQuestion('question4', 'question5')" disabled>Confirmer</button>
     </div>
 
@@ -286,7 +308,7 @@
           <button onclick="selectButton(this)">Intérêt pour la méditation et la pleine conscience </button>
           <button onclick="selectButton(this)">Besoin de réduire le stress et se détendre </button>
           <button onclick="selectButton(this)">Curiosité pour explorer de nouvelles perspectives sur la nature </button>
-          <button class="confirmer" onclick="nextQuestion('question25', 'question25')" disabled>Confirmer</button> O_o
+          <button class="confirmer" onclick="nextQuestion('question25', 'result')" disabled>Confirmer</button> O_o
     </div>
 
     <script src="test.js"></script>
