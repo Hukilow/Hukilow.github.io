@@ -12,26 +12,23 @@ var userScores = {
 };
 
 
-function calculateUserProfile() {
-  var maxScore = 0;
-  var userProfile = "";
+// function updateDosage() {
+//   var slider = document.getElementById("dosage");
+//   var output = document.getElementById("output");
+//   output.innerText = "" + slider.value;
+// }
 
-  // Iterate through the userScores object to find the profile with the highest score
-  for (var profile in userScores) {
-    if (userScores[profile] > maxScore) {
-      maxScore = userScores[profile];
-      userProfile = profile;
-    }
+let sliderValue
+function updateDosage(slider) {
+  var output = slider.closest('.question').querySelector('.output');
+  if (output) {
+    output.innerText = "" + slider.value;
+    sliderValue = slider.value;
+  } else {
+    console.error('Output element not found');
   }
-  console.log(userProfile);
-  return userProfile;
 }
 
-function updateDosage() {
-  var slider = document.getElementById("dosage");
-  var output = document.getElementById("output");
-  output.innerText = "" + slider.value;
-}
 
 var temporaryScores = {}; // Variable pour stocker temporairement les scores associés à chaque bouton
 
@@ -65,38 +62,34 @@ function nextQuestion(currentQuestion, nextQuestion) {
   var nextQuestionDiv = document.querySelector('.question[data-question="' + nextQuestion + '"]');
 
   if (currentQuestionDiv && nextQuestionDiv) {
+    console.log(nextQuestion)
     // Ajoutez les scores temporaires aux scores réels
     for (var key in temporaryScores) {
       if (temporaryScores.hasOwnProperty(key)) {
         userScores[key] += temporaryScores[key];
       }
     }
-    console.log(temporaryScores);
     console.log(userScores);
     temporaryScores = {}; // Réinitialisez les scores temporaires
 
     // Continuez avec la logique de navigation vers la prochaine question ou le résultat
     currentQuestionDiv.classList.remove("active");
 
-    if (nextQuestion === 'result') {
-      calculateUserProfile();
-      // Ajoutez ici le code pour afficher ou gérer le résultat
-    } else {
-      nextQuestionDiv.classList.add("active");
+    nextQuestionDiv.classList.add("active");
 
-      // Désactivez le bouton "Confirmer" à nouveau
-      nextQuestionDiv.querySelector('.confirmer').disabled = true;
-      nextQuestionDiv.querySelector('.confirmer').style.cursor = 'not-allowed';
-    }
+    // Désactivez le bouton "Confirmer" à nouveau
+    nextQuestionDiv.querySelector('.confirmer').disabled = true;
+    nextQuestionDiv.querySelector('.confirmer').style.cursor = 'not-allowed';
+  }
+  else if (nextQuestion === 'result') {
+    window.location.href = 'resultat.html';
   }
 }
 
 function nextQuestionSlider(currentQuestion, nextQuestion, NumSlider) {
-  var output = document.getElementById('output' + sliderId.slice(-1));
-  output.innerText = "" + slider.value;
+  var output = parseInt(sliderValue)
   var currentQuestionDiv = document.querySelector('.question[data-question="' + currentQuestion + '"]');
   var nextQuestionDiv = document.querySelector('.question[data-question="' + nextQuestion + '"]');
-
   switch (NumSlider) {
     case 1:
       switch (output) {
@@ -119,7 +112,7 @@ function nextQuestionSlider(currentQuestion, nextQuestion, NumSlider) {
           userScores["Explorateur_aventureux"] += 1;
           break;
         case 1:
-          userScores["Explorateur_aventureux"] += 1;
+          userScores["Jardinier_en_herbe"] += 10;
           break;
         case 2:
           userScores["Explorateur_aventureux"] += 1;
@@ -141,6 +134,7 @@ function nextQuestionSlider(currentQuestion, nextQuestion, NumSlider) {
       }
       break;
   }
+  console.log(userScores);
   // Continuez avec la logique de navigation vers la prochaine question
   currentQuestionDiv.classList.remove("active");
   nextQuestionDiv.classList.add("active");

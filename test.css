@@ -65,33 +65,28 @@ h2 {
 
 .slider-container {
   position: relative;
-  width: 20%;
+  width: 25%;
   margin: 50px auto;
-  background-color: lightgray;
-  z-index: 1;
 }
 
 input[type="range"] {
   -webkit-appearance: none;
-  /* Remove default styles */
   width: 100%;
-  height: 10px;
-  /* Specify the height of the track */
-  background: transparent;
-  /* Set a transparent background to make thumb customization possible */
+  height: 2px;
+  background: #000;
+  border-radius: 5px;
+  outline: none;
+  margin-top: 20px;
 }
 
 input[type="range"]::-webkit-slider-thumb {
   -webkit-appearance: none;
   width: 20px;
   height: 20px;
-  background-color: green;
+  background-color: #000;
   border-radius: 50%;
   cursor: pointer;
-  font-family: 'segoe-ui-emoji-normal', sans-serif;
-  /* Utiliser une police qui inclut le caractère de fleur */
-  content: '\2741';
-  /* Code Unicode pour une fleur */
+  border: 2px solid #fff;
   z-index: 3;
 }
 

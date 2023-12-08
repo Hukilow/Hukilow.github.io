@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Oscilloscope Plant</title>
+    <style>
+      body {
+        font-family: "Arial", sans-serif;
+        text-align: center;
+        margin: 0;
+        overflow: hidden;
+      }
+
+      #oscilloscope {
+        width: 100%;
+        height: 100vh;
+        background-color: black;
+        position: relative;
+        overflow: hidden;
+      }
+
+      #waveform {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 55%;
+        overflow: hidden;
+      }
+
+      path {
+        fill: none;
+        stroke: lime;
+        stroke-width: 2;
+        stroke-linecap: round;
+        animation: waveAnimation 3s linear infinite;
+      }
+
+      p {
+        position: relative;
+        z-index: 4;
+      }
+
+      #messages {
+        position: absolute;
+        text-align: justify;
+        font-size: 4vw;
+        margin-top: -400px;
+        color: white;
+        background: rgba(0, 0, 0, 0.5);
+        padding: 10px;
+        border-radius: 5px;
+        max-height: 10%;
+        min-width: 100%;
+        max-width: 100%;
+      }
+
+      @keyframes waveAnimation {
+        from {
+          d: path(
+            "M 0 50 Q 200 150 50 50 T 200 50 T 300 50 T 400 50 T 500 50 T 600 50 T 700 50 T 800 50 T 900 50 T 1000 50 T 1100 50 T 1200 50 T 1300 50 T 1400 50 T 1500 50 T 1600 50 T 1700 50 T 1800 50 T 1900 50 T 2000 50"
+          );
+        }
+
+        to {
+          d: path(
+            "M 0 50 Q 50 0 70 50 T 200 50 T 300 50 T 400 50 T 500 50 T 600 50 T 700 50 T 800 50 T 900 50 T 1000 50 T 1100 50 T 1200 50 T 1300 50 T 1400 50 T 1500 50 T 1600 50 T 1700 50 T 1800 50 T 1900 50 T 2000 50"
+          );
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div id="oscilloscope">
+      <svg id="waveform" xmlns="http://www.w3.org/2000/svg">
+        <path
+          d="M 0 50 Q 50 120 100 50 T 200 50 T 300 50 T 400 50 T 500 50 T 600 50 T 700 50 T 800 50 T 900 50 T 1000 50 T 1100 50 T 1200 50 T 1300 50 T 1400 50 T 1500 50 T 1600 50 T 1700 50 T 1800 50 T 1900 50 T 2000 50"
+        />
+      </svg>
+    </div>
+    <div id="messages"></div>
+
+    <script>
+      function generateRandomMessage() {
+        const messages = [
+          "Je suis une plante heureuse !",
+          "Les feuilles sont mes mots.",
+          "Photosynthèse en cours...",
+          "J'aimerais de l'eau, s'il vous plaît.",
+          "Merci pour la lumière du soleil !",
+          "La vie est belle dans le pot.",
+        ];
+
+        const randomIndex = Math.floor(Math.random() * messages.length);
+        return messages[randomIndex];
+      }
+
+      function updateMessages() {
+        const messagesContainer = document.getElementById("messages");
+        const message = generateRandomMessage();
+        messagesContainer.innerHTML = `<p>${message}</p>`;
+      }
+
+      setInterval(updateMessages, 5000);
+    </script>
+  </body>
+</html>

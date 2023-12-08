@@ -95,14 +95,15 @@ nav {
 
 
 .menu ul {
+  align-items: center;
   list-style: none;
   padding: 0;
-  margin: 0;
+  margin-left: 27%;
 }
 
 .menu ul li {
   padding: 10px;
-  text-align: center;
+  text-align: left;
 }
 
 .menu a {
@@ -125,6 +126,10 @@ nav {
   display: none;
 }
 
+#allprofils {
+  margin-left: 2%;
+}
+
 #Home {
   margin-top: 10px;
   font-size: 20px;
@@ -138,10 +143,8 @@ h1 {
   position: absolute;
   top: 10%;
   left: 5%;
-  /* Adjusted left position */
-  width: 40%;
+  width: 30%;
   font-size: 5vw;
-  /* Using viewport width for responsive font size */
 }
 
 a {
@@ -150,9 +153,20 @@ a {
 }
 
 #description {
-  text-align: left;
+  text-align: justify;
   position: absolute;
   top: 40%;
+  left: 5%;
+  /* Adjusted left position */
+  width: 30%;
+  font-size: 1.5vw;
+  /* Using viewport width for responsive font size */
+}
+
+#description1 {
+  text-align: left;
+  position: absolute;
+  top: 67%;
   left: 5%;
   /* Adjusted left position */
   width: 30%;

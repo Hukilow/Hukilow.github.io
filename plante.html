@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Oscilloscope Plant</title>
+    <style>
+      body {
+        font-family: "Arial", sans-serif;
+        text-align: center;
+        margin: 0;
+        overflow: hidden;
+      }
+
+      #oscilloscope {
+        width: 100%;
+        height: 100vh;
+        background-color: black;
+        position: relative;
+        overflow: hidden;
+      }
+
+      #waveform {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 70%; /* Change height to 100% */
+        overflow: hidden;
+      }
+
+      path {
+        fill: none;
+        stroke: lime;
+        stroke-width: 2;
+        stroke-linecap: round;
+        animation: waveAnimation 1.5s linear infinite alternate;
+        stroke-dasharray: 100%; /* Fixer la longueur totale du trait à 100% */
+      }
+
+      p {
+        position: relative;
+        z-index: 4;
+      }
+
+      #messages {
+        position: absolute;
+        text-align: center;
+        font-size: 4vw;
+        margin-top: -200px; /* Adjust margin-top to move the message lower */
+        color: white;
+        background: rgba(0, 0, 0, 0.5);
+        padding: 10px;
+        border-radius: 5px;
+        max-height: 10%;
+        min-width: 100%;
+        max-width: 100%;
+      }
+
+      @keyframes waveAnimation {
+        from {
+          stroke-dashoffset: 0;
+        }
+
+        to {
+          stroke-dashoffset: 100%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div id="oscilloscope">
+      <svg id="waveform" xmlns="http://www.w3.org/2000/svg">
+        <path id="wavePath" d="" />
+      </svg>
+    </div>
+    <div id="messages"></div>
+
+    <script>
+      function generateRandomControlPoints() {
+        const x1 = Math.random() * 200; // Réduire x1 pour déplacer le début vers la gauche
+        const y1 = Math.random() * 150; // Réduire y1 pour déplacer le début vers le bas
+        const x2 = Math.random() * 100; // Augmenter x2 pour déplacer la courbe vers la droite
+        const y2 = Math.random() * 200; // Réduire y2 pour déplacer le haut de la courbe vers le bas
+        const x = Math.random() * 150; // Augmenter x pour déplacer la fin vers la droite
+        const y = Math.random() * 200; // Réduire y pour déplacer la fin vers le bas
+
+        return `M 0 50 Q ${x1} ${y1} ${x} ${y} T 200 ${y} T 400 ${y} T 600 ${y} T 800 ${y} T 1000 ${y} T 1200 ${y} T 1400 ${y} T 1600 ${y} T 1800 ${y} T 2000 ${y}`;
+      }
+
+      function updateWave() {
+        const waveform = document.getElementById("wavePath");
+        const path = generateRandomControlPoints();
+        waveform.setAttribute("d", path);
+      }
+
+      function generateRandomMessage() {
+        const messages = [
+          "Je suis une plante heureuse !",
+          "Les feuilles sont mes mots.",
+          "Photosynthèse en cours...",
+          "J'aimerais de l'eau, s'il vous plaît.",
+          "Merci pour la lumière du soleil !",
+          "La vie est belle dans le pot.",
+        ];
+
+        const randomIndex = Math.floor(Math.random() * messages.length);
+        return messages[randomIndex];
+      }
+
+      function updateMessages() {
+        const messagesContainer = document.getElementById("messages");
+        const message = generateRandomMessage();
+        messagesContainer.innerHTML = `<p>${message}</p>`;
+      }
+
+      setInterval(() => {
+        updateWave();
+        updateMessages();
+      }, 6000);
+    </script>
+  </body>
+</html>
