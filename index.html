@@ -1,74 +1,220 @@
 <!-- index.html -->
 
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      href="https://api.fontshare.com/v2/css?f[]=satoshi@400&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-  <link href="https://api.fontshare.com/v2/css?f[]=satoshi@400&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
-</head>
-
-<body>
-  <h1>Quel est ton éco-profil ?</h1>
-  <div>
-    <p id="description"> Explorateur aventureux, jardinier en herbe, admirateur de la faune, méditateur naturel, artiste
-      botanique, citadin vert, écologiste engagé, explorateur contemplatif, curieux des sciences naturelles ou bien un
-      apprenti explorateur ?
+  <body>
+    <h1>Quel est ton éco-profil ?</h1>
+    <div>
+      <p id="description">
+        Explorateur aventureux, jardinier en herbe, admirateur de la faune,
+        méditateur naturel, artiste botanique, citadin vert, écologiste engagé,
+        explorateur contemplatif, curieux des sciences naturelles ou bien un
+        apprenti explorateur ?
+      </p>
+    </div>
+    <p id="description1">
+      Explore ton lien avec la nature en découvrant ton profil !
     </p>
-  </div>
-  <p id="description1"> Explore ton lien avec la nature en découvrant ton profil !
-  </p>
-  </div>
-  <div class="image">
-    <img src="img/quatre.jpg" alt="first">
-  </div>
-  <div>
-    <a id="commencer" href="test.html">Commencer le test</a>
-  </div>
+    <div class="image">
+      <img src="img/quatre.jpg" alt="first" />
+    </div>
+    <div>
+      <a id="commencer" href="test.html">Commencer le test</a>
+    </div>
 
-  <div id="user-info" style="display: none;">
-    <nav>
-      <ul>
-        <li id=username><a href="#Home">Username</a></li>
-        <li id="logout"><a href="/logout">Se déconnecter</a></li>
-      </ul>
-    </nav>
-    <!-- Contenu pour l'utilisateur connecté -->
-  </div>
-
-  <div id="login-signup" style="display: block;">
-    <!-- Contenu pour l'utilisateur non connecté -->
-    <nav id="navbar">
-      <ul class="droite">
-        <li id="login"><a href="login.html">Connexion</a></li>
-        <li id="signup"><a href="signup.html">S'inscrire</a></li>
-      </ul>
-      <div class="lines" onclick="toggleMenu()">
-        <div id="firstline"></div>
-        <div id="secondline"></div>
-        <div id="thirdline"></div>
-      </div>
-      <div class="menu">
+    <div id="user-info" style="display: none">
+      <nav>
         <ul>
-          <li id="Home"><a href="#Home">Accueil</a></li>
-          <li id="profils"><a href="#profils" onclick="toggleList('allprofils')">Les profils</a>
-            <ul id="allprofils" class="hidden">
-              <li><a href="#">-Jardinier en herbe</a></li>
-              <li><a href="#">-Explorateur contemplatif</a></li>
-              <li><a href="#">-Méditateur naturel</a></li>
-            </ul>
-          </li>
-          <li id="Activities"><a href="#">Activités</a></li>
-          <li id="Podcasts"><a href="#">Podcasts</a></li>
-          <li id="Lectures"><a href="#">Lectures</a></li>
-          <li id="Reportages"><a href="#">Reportages</a></li>
-          <li id="Plante"><a href="plante.html">Plante</a></li>
+          <li id="username"><a href="#Home">Username</a></li>
+          <li id="logout"><a href="/logout">Se déconnecter</a></li>
         </ul>
-      </div>
-    </nav>
-  </div>
-  <script src="index.js"></script>
-</body>
+      </nav>
+      <!-- Contenu pour l'utilisateur connecté -->
+    </div>
+
+    <div id="login-signup" style="display: block">
+      <!-- Contenu pour l'utilisateur non connecté -->
+      <nav id="navbar">
+        <ul class="droite">
+          <li id="login"><a href="login.html">Connexion</a></li>
+          <li id="signup"><a href="signup.html">S'inscrire</a></li>
+        </ul>
+        <div class="lines" onclick="toggleMenu()">
+          <div id="firstline"></div>
+          <div id="secondline"></div>
+          <div id="thirdline"></div>
+        </div>
+        <div class="menu">
+          <ul>
+            <li id="Home"><a href="#Home">Accueil</a></li>
+            <li id="profils">
+              <a href="#profils-section" onclick="toggleList('allprofils')"
+                >Les profils</a
+              >
+              <ul id="allprofils" class="hidden">
+                <li><a href="#">-Jardinier en herbe</a></li>
+                <li><a href="#">-L’Admirateur de la Faune</a></li>
+                <li><a href="#">-Le Méditateur Naturel</a></li>
+                <li><a href="#">-Le Curieux des Sciences Naturelles </a></li>
+                <li><a href="#">-L’Explorateur Aventureux</a></li>
+                <li><a href="#">-L’artiste botanique</a></li>
+                <li><a href="#">-Le citadin vert</a></li>
+                <li><a href="#">-L’apprenti explorateur </a></li>
+                <li><a href="#">-L’explorateur contemplatif</a></li>
+                <li><a href="#">-L’écologiste engagé</a></li>
+              </ul>
+            </li>
+            <li id="Activities"><a href="#">Activités</a></li>
+            <li id="Podcasts"><a href="#">Podcasts</a></li>
+            <li id="Lectures"><a href="#">Lectures</a></li>
+            <li id="Reportages"><a href="#">Reportages</a></li>
+            <li id="Plante"><a href="plante.html">Plante</a></li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+    <div id="profils-section" class="image-container">
+      <ul class="profiles-list">
+        <li class="profilesdesc">
+          <img
+            src="img/L'Admirateur_de_la_Faune.png"
+            alt="Jardinier_en_herbe"
+          />
+          <a href="profils/Le_jardinier_en_herbe.html">
+            <p class="nomprofil">Le jardinier en herbe</p>
+          </a>
+          <p>Son amour pour le jardinage ne connaît pas de limite</p>
+        </li>
+        <li class="profilesdesc">
+          <img
+            src="img/L'Admirateur_de_la_Faune.png"
+            alt="L'Admirateur_de_la_Faune"
+          />
+          <a href="profils/L'admirateur_de_la_Faune.html">
+            <p class="nomprofil">L'Admirateur de la Faune</p>
+          </a>
+          <p>
+            Son intérêt pour l'observation passionnée des animaux et de la vie
+            sauvage est imuable
+          </p>
+        </li>
+        <li class="profilesdesc">
+          <img
+            src="img/L'Admirateur_de_la_Faune.png"
+            alt="L'Admirateur_de_la_Faune"
+          />
+          <a href="profils/Le_Méditateur_Naturel.html">
+            <p class="nomprofil">Le Méditateur Naturel</p>
+          </a>
+          <p>
+            Son aspiration première est de trouver la paix intérieure et la
+            sérénité en harmonie avec la nature.
+          </p>
+        </li>
+        <li class="profilesdesc">
+          <img
+            src="img/L'Admirateur_de_la_Faune.png"
+            alt="L'Admirateur_de_la_Faune"
+          />
+          <a href="profils/Le_Curieux_des_Sciences_Naturelles.html">
+            <p class="nomprofil">Le Curieux des Sciences Naturelles</p>
+          </a>
+          <p>
+            Son intérêt s'étend à de nombreux domaines des sciences naturelles
+          </p>
+        </li>
+        <li class="profilesdesc">
+          <img
+            src="img/L'Admirateur_de_la_Faune.png"
+            alt="L'Admirateur_de_la_Faune"
+          />
+          <a href="profils/L’Explorateur_Aventureux.html">
+            <p class="nomprofil">L’Explorateur Aventureux</p>
+          </a>
+          <p>
+            Aimant l’aventure et le risque, les nouveaux horizons sont sa tasse
+            de thé
+          </p>
+        </li>
+        <li class="profilesdesc">
+          <img
+            src="img/L'Admirateur_de_la_Faune.png"
+            alt="L'Admirateur_de_la_Faune"
+          />
+          <a href="profils/L’artiste_botanique.html">
+            <p class="nomprofil">L’artiste botanique</p>
+          </a>
+          <p>
+            Son esprit créatif trouve l'inspiration dans les éléments naturels
+            qui l'entourent
+          </p>
+        </li>
+        <li class="profilesdesc">
+          <img
+            src="img/L'Admirateur_de_la_Faune.png"
+            alt="L'Admirateur_de_la_Faune"
+          />
+          <a href="profils/Le_citadin_vert.html">
+            <p class="nomprofil">Le citadin vert</p>
+          </a>
+          <p>
+            Vivant en milieu urbain, il cherche activement à se connecter avec
+            la nature
+          </p>
+        </li>
+        <li class="profilesdesc">
+          <img
+            src="img/L'Admirateur_de_la_Faune.png"
+            alt="L'Admirateur_de_la_Faune"
+          />
+          <a href="profils/L’apprenti_explorateur.html">
+            <p class="nomprofil">L’apprenti explorateur</p>
+          </a>
+          <p>Son amour latent pour le monde naturel est prêt à émerger</p>
+        </li>
+        <li class="profilesdesc">
+          <img
+            src="img/L'Admirateur_de_la_Faune.png"
+            alt="L'Admirateur_de_la_Faune"
+          />
+          <a href="profils/L’explorateur_contemplatif.html">
+            <p class="nomprofil">L’explorateur contemplatif</p>
+          </a>
+          <p>
+            Calme et paisible, il aime les moments de quiétude et d'appréciation
+            esthétique
+          </p>
+        </li>
+        <li class="profilesdesc">
+          <img
+            src="img/L'Admirateur_de_la_Faune.png"
+            alt="L'Admirateur_de_la_Faune"
+          />
+          <a href="/profils/L’écologiste_engagé.html">
+            <p class="nomprofil">L’écologiste engagé</p>
+          </a>
+          <p>
+            Passionné, il cherche sans cesse des moyens d'agir pour la
+            préservation de la nature
+          </p>
+        </li>
+        <li class="profilesdesc">
+          <div class="circle"></div>
+          <p id="plusprofil">Envie de suggérer un profil ?</p>
+        </li>
+      </ul>
+    </div>
+    <script src="index.js"></script>
+  </body>
+</html>

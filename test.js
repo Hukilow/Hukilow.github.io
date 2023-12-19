@@ -1,47 +1,52 @@
 var userScores = {
-  "Explorateur_aventureux": 0,
-  "Jardinier_en_herbe": 0,
-  "Admirateur_de_la_faune": 0,
-  "Méditateur_naturel": 0,
-  "Artiste_botanique": 0,
-  "Explorateur_contemplatif": 0,
-  "Citadin_vert": 0,
-  "Écologiste_engagé": 0,
-  "Curieux_des_sciences_naturelles": 0,
-  "Apprenti_explorateur": 0,
+  Explorateur_aventureux: 0,
+  Jardinier_en_herbe: 0,
+  Admirateur_de_la_faune: 0,
+  Méditateur_naturel: 0,
+  Artiste_botanique: 0,
+  Explorateur_contemplatif: 0,
+  Citadin_vert: 0,
+  Écologiste_engagé: 0,
+  Curieux_des_sciences_naturelles: 0,
+  Apprenti_explorateur: 0,
 };
 
-
-// function updateDosage() {
-//   var slider = document.getElementById("dosage");
-//   var output = document.getElementById("output");
-//   output.innerText = "" + slider.value;
-// }
-
-let sliderValue
+let sliderValue;
 function updateDosage(slider) {
-  var output = slider.closest('.question').querySelector('.output');
+  var output = slider.closest(".question").querySelector(".output");
   if (output) {
-    output.innerText = "" + slider.value;
+    // output.innerText = "" + slider.value;
     sliderValue = slider.value;
+    updateFlowerParts(slider.value);
   } else {
-    console.error('Output element not found');
+    console.error("Output element not found");
   }
 }
 
+function updateFlowerParts(value) {
+  // Réinitialiser les classes
+  for (let i = 0; i <= 4; i++) {
+    document.getElementById("flower-part-" + i).classList.remove("full");
+  }
+
+  // Ajouter des classes en fonction de la valeur du curseur
+  for (let i = 0; i < value; i++) {
+    document.getElementById("flower-part-" + i).classList.add("full");
+  }
+}
 
 var temporaryScores = {}; // Variable pour stocker temporairement les scores associés à chaque bouton
 
 function selectButton(button, scores) {
   // Désélectionnez tous les boutons
   document
-    .querySelectorAll('.question button:not(.confirmer)')
-    .forEach(function(btn) {
-      btn.classList.remove('selected');
+    .querySelectorAll(".question button:not(.confirmer)")
+    .forEach(function (btn) {
+      btn.classList.remove("selected");
     });
 
   // Sélectionnez le bouton cliqué
-  button.classList.add('selected');
+  button.classList.add("selected");
 
   // Stockez temporairement les scores associés au bouton
   temporaryScores = {};
@@ -53,16 +58,21 @@ function selectButton(button, scores) {
   }
 
   // Activez le bouton "Confirmer"
-  button.closest('.question').querySelector('.confirmer').disabled = false;
-  button.closest('.question').querySelector('.confirmer').style.cursor = 'initial';
+  button.closest(".question").querySelector(".confirmer").disabled = false;
+  button.closest(".question").querySelector(".confirmer").style.cursor =
+    "initial";
 }
 
 function nextQuestion(currentQuestion, nextQuestion) {
-  var currentQuestionDiv = document.querySelector('.question[data-question="' + currentQuestion + '"]');
-  var nextQuestionDiv = document.querySelector('.question[data-question="' + nextQuestion + '"]');
+  var currentQuestionDiv = document.querySelector(
+    '.question[data-question="' + currentQuestion + '"]',
+  );
+  var nextQuestionDiv = document.querySelector(
+    '.question[data-question="' + nextQuestion + '"]',
+  );
 
   if (currentQuestionDiv && nextQuestionDiv) {
-    console.log(nextQuestion)
+    console.log(nextQuestion);
     // Ajoutez les scores temporaires aux scores réels
     for (var key in temporaryScores) {
       if (temporaryScores.hasOwnProperty(key)) {
@@ -78,18 +88,21 @@ function nextQuestion(currentQuestion, nextQuestion) {
     nextQuestionDiv.classList.add("active");
 
     // Désactivez le bouton "Confirmer" à nouveau
-    nextQuestionDiv.querySelector('.confirmer').disabled = true;
-    nextQuestionDiv.querySelector('.confirmer').style.cursor = 'not-allowed';
-  }
-  else if (nextQuestion === 'result') {
-    window.location.href = 'resultat.html';
+    nextQuestionDiv.querySelector(".confirmer").disabled = true;
+    nextQuestionDiv.querySelector(".confirmer").style.cursor = "not-allowed";
+  } else if (nextQuestion === "result") {
+    window.location.href = "resultat.html";
   }
 }
 
 function nextQuestionSlider(currentQuestion, nextQuestion, NumSlider) {
-  var output = parseInt(sliderValue)
-  var currentQuestionDiv = document.querySelector('.question[data-question="' + currentQuestion + '"]');
-  var nextQuestionDiv = document.querySelector('.question[data-question="' + nextQuestion + '"]');
+  var output = parseInt(sliderValue);
+  var currentQuestionDiv = document.querySelector(
+    '.question[data-question="' + currentQuestion + '"]',
+  );
+  var nextQuestionDiv = document.querySelector(
+    '.question[data-question="' + nextQuestion + '"]',
+  );
   switch (NumSlider) {
     case 1:
       switch (output) {
@@ -140,6 +153,6 @@ function nextQuestionSlider(currentQuestion, nextQuestion, NumSlider) {
   nextQuestionDiv.classList.add("active");
 
   // Désactivez le bouton "Confirmer" à nouveau
-  nextQuestionDiv.querySelector('.confirmer').disabled = true;
-  nextQuestionDiv.querySelector('.confirmer').style.cursor = 'not-allowed';
+  nextQuestionDiv.querySelector(".confirmer").disabled = true;
+  nextQuestionDiv.querySelector(".confirmer").style.cursor = "not-allowed";
 }

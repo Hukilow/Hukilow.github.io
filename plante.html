@@ -10,22 +10,49 @@
         text-align: center;
         margin: 0;
         overflow: hidden;
+        background-color: black;
+      }
+
+      .rectangle {
+        position: relative;
+        width: 60vw; /* 60% of viewport width */
+        height: 35vh; /* 35% of viewport height */
+        background-color: transparent;
+        border: 2px solid gray; /* Gray border */
+        margin-left: 20vw;
+        margin-top: 15vh; /* Center vertically by adjusting top margin */
+        z-index: 4;
+      }
+
+      .black {
+        position: relative;
+        width: 60vw; /* 60% of viewport width */
+        height: 35vh; /* 35% of viewport height */
+        background-color: black;
+        border: 0px solid gray; /* Gray border */
+        margin-left: 60vw;
+        margin-top: 25vh; /* Center vertically by adjusting top margin */
+        z-index: 4;
       }
 
       #oscilloscope {
+        bottom: 60vh;
+        margin-left: 20vw;
         width: 100%;
         height: 100vh;
         background-color: black;
         position: relative;
         overflow: hidden;
+        z-index: 2;
       }
 
       #waveform {
+        z-index: 3;
         position: absolute;
-        bottom: 0;
+        bottom: 40vh;
         left: 0;
         width: 100%;
-        height: 70%; /* Change height to 100% */
+        height: 30%; /* Change height to 100% */
         overflow: hidden;
       }
 
@@ -47,7 +74,7 @@
         position: absolute;
         text-align: center;
         font-size: 4vw;
-        margin-top: -200px; /* Adjust margin-top to move the message lower */
+        margin-top: -80vh; /* Adjust margin-top to move the message lower */
         color: white;
         background: rgba(0, 0, 0, 0.5);
         padding: 10px;
@@ -69,11 +96,14 @@
     </style>
   </head>
   <body>
+    <div class="rectangle"></div>
     <div id="oscilloscope">
       <svg id="waveform" xmlns="http://www.w3.org/2000/svg">
         <path id="wavePath" d="" />
       </svg>
+      <div class="black"></div>
     </div>
+
     <div id="messages"></div>
 
     <script>
@@ -83,9 +113,9 @@
         const x2 = Math.random() * 100; // Augmenter x2 pour déplacer la courbe vers la droite
         const y2 = Math.random() * 200; // Réduire y2 pour déplacer le haut de la courbe vers le bas
         const x = Math.random() * 150; // Augmenter x pour déplacer la fin vers la droite
-        const y = Math.random() * 200; // Réduire y pour déplacer la fin vers le bas
+        const y = Math.random() * 250; // Réduire y pour déplacer la fin vers le bas
 
-        return `M 0 50 Q ${x1} ${y1} ${x} ${y} T 200 ${y} T 400 ${y} T 600 ${y} T 800 ${y} T 1000 ${y} T 1200 ${y} T 1400 ${y} T 1600 ${y} T 1800 ${y} T 2000 ${y}`;
+        return `M 0 50 Q ${x1} ${y1} ${x} ${y} T 200 ${y} T 400 ${y} T 600 ${y} T 800 ${y} T 1000 ${y} T 1200 ${y} T 1400 ${y} T 1600 ${y} T 1800 ${y} T 2000 ${y} T 2200 ${y} T 2400 ${y} T 2600 ${y} T 2800 ${y} T 3000 ${y} T 3200 ${y} T 3400 ${y} T 3600 ${y} T 3800 ${y} T 4000 ${y} T 4200 ${y} T 4400 ${y} T 4600 ${y} T 4800 ${y} T 5000 ${y} T 5200 ${y}`;
       }
 
       function updateWave() {

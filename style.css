@@ -16,6 +16,7 @@
   list-style: none;
   margin: 0;
   padding: 0;
+  scroll-behavior: smooth;
 
 }
 
@@ -98,11 +99,12 @@ nav {
   align-items: center;
   list-style: none;
   padding: 0;
-  margin-left: 27%;
+  margin-left: 32%;
 }
 
 .menu ul li {
-  padding: 10px;
+  margin: 2% 0 5% -25%;
+  padding: 16px;
   text-align: left;
 }
 
@@ -118,7 +120,7 @@ nav {
 
 .menu ul li ul li {
   margin-top: 10px;
-  font-size: 12px;
+  font-size: 15px;
 }
 
 
@@ -189,9 +191,97 @@ a {
 }
 
 /* IMG */
-img {
+.image img {
   margin-left: 20%;
   max-width: 900px;
   max-height: 100%;
   height: auto;
 }
+
+/*img profiles*/
+.image-container {
+  margin-top: 25%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  /* Ajustez cela selon vos préférences */
+}
+
+.profiles-list {
+  display: contents;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.profilesdesc {
+  text-align: center;
+  margin: 10px;
+  width: 20%;
+}
+
+.profilesdesc img {
+  width: 100%;
+}
+
+.profilesdesc p {
+  max-width: 80%;
+  text-align: center;
+  margin-top: 15px;
+}
+
+.profilesdesc a {
+  color: black;
+}
+
+.nomprofil {
+  font-size: 1vw;
+  font-weight: bolder;
+}
+
+.nomprofil:hover {
+  transform: scale(1.1);
+  cursor: pointer;
+}
+
+/*+*/
+.circle {
+  margin: 45% auto;
+  position: relative;
+  width: 100px;
+  height: 100px;
+  background-color: black;
+  border-radius: 50%;
+}
+
+.circle::before,
+.circle::after {
+  content: "";
+  position: absolute;
+  background-color: white;
+}
+
+.circle::before {
+  width: 60%;
+  height: 10%;
+  top: 45%;
+  left: 20%;
+}
+
+.circle::after {
+  width: 10%;
+  height: 60%;
+  top: 20%;
+  left: 45%;
+}
+
+#plusprofil {
+  font-size: 1vw;
+  font-weight: bolder;
+  position: relative;
+  left: 12%;
+  bottom: 100px;
+}
+
+/* Ajustez les dimensions et positions selon vos préférences */
+/*+*/
