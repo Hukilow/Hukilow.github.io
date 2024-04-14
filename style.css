@@ -198,9 +198,16 @@ a {
   height: auto;
 }
 
+#first {
+  padding-left: 10%;
+  max-width: 90%;
+  max-height: 100%;
+  margin-top: -5%;
+}
+
 /*img profiles*/
 .image-container {
-  margin-top: 25%;
+  margin-top: 15%;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
