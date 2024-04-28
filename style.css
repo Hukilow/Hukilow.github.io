@@ -143,10 +143,10 @@ nav {
 h1 {
   text-align: justify;
   position: absolute;
-  top: 10%;
+  top: 8%;
   left: 5%;
   width: 30%;
-  font-size: 5vw;
+  font-size: 4.6vw;
 }
 
 a {
@@ -214,6 +214,15 @@ a {
   /* Ajustez cela selon vos préférences */
 }
 
+#ecologisteengagéimg {
+  margin-top: 13%;
+  transform: scale(1.35)
+}
+
+#ecoloengagé {
+  margin-top: 15%;
+}
+
 .profiles-list {
   display: contents;
   list-style: none;
@@ -234,7 +243,7 @@ a {
 .profilesdesc p {
   max-width: 80%;
   text-align: center;
-  margin-top: 15px;
+  padding-left: 18%;
 }
 
 .profilesdesc a {
@@ -244,6 +253,7 @@ a {
 .nomprofil {
   font-size: 1vw;
   font-weight: bolder;
+  margin-bottom: 5%;
 }
 
 .nomprofil:hover {
@@ -290,5 +300,91 @@ a {
   bottom: 100px;
 }
 
-/* Ajustez les dimensions et positions selon vos préférences */
-/*+*/
+@media only screen and (max-width: 600px) {
+  /* Ajoutez ce code pour les écrans de téléphone */
+
+  /* NAV BAR */
+  .menu ul {
+    margin-left: 0;
+    /* Réinitialiser la marge */
+    text-align: center;
+    /* Centrer les éléments de la liste */
+  }
+
+  .menu ul li {
+    margin: 10px 0;
+    /* Espacement entre les éléments de la liste */
+  }
+
+  .lines {
+    left: 10px;
+    margin: 15px 0;
+    /* Espacement entre les lignes */
+  }
+
+  /* BODY */
+  h1,
+  #description,
+  #description1,
+  #commencer {
+    position: static;
+    /* Réinitialiser la position absolue */
+    width: 90%;
+    /* Utiliser une largeur plus grande */
+    margin: 10px auto;
+    /* Centrer et espacer les éléments */
+    text-align: center;
+    /* Centrer le texte */
+    font-size: 4vw;
+    /* Utiliser une taille de police réactive */
+  }
+
+  h1 {
+    margin-top: 85px;
+  }
+
+  .image img,
+  #first {
+    margin-left: 0;
+    /* Réinitialiser la marge gauche */
+    max-width: 100%;
+    /* Assurez-vous que les images s'adaptent à la largeur de l'écran */
+  }
+
+  #first {
+    margin-top: 5px;
+  }
+
+  .image-container {
+    margin-top: 10%;
+    /* Réduire légèrement l'espacement en haut */
+  }
+
+  .profilesdesc {
+    width: 90%;
+    /* Utiliser une largeur plus grande */
+    margin: 10px auto;
+    /* Centrer et espacer les éléments */
+  }
+
+  .nomprofil {
+    font-size: 3vw;
+    /* Utiliser une taille de police réactive */
+  }
+
+  .circle {
+    margin: 20% auto;
+    /* Ajuster l'espacement */
+  }
+
+  #plusprofil {
+    font-size: 3vw;
+    /* Utiliser une taille de police réactive */
+    bottom: initial;
+    /* Réinitialiser la position basse */
+    margin-top: 20px;
+    /* Espacement par rapport au contenu précédent */
+    display: contents;
+  }
+
+}

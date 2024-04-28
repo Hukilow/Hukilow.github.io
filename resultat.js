@@ -1,93 +1,84 @@
-var userScores = {
-  Explorateur_aventureux: 10,
-  Jardinier_en_herbe: 15,
-  Admirateur_de_la_faune: 8,
-  Méditateur_naturel: 5,
-  Artiste_botanique: 12,
-  Explorateur_contemplatif: 18,
-  Citadin_vert: 7,
-  Écologiste_engagé: 14,
-  Curieux_des_sciences_naturelles: 11,
-  Apprenti_explorateur: 9,
-};
-
-// Convertir les scores en tableau pour Chart.js
-var profileLabels = Object.keys(userScores);
-var profilePoints = Object.values(userScores);
-
-// Créer le graphique polarArea
-var ctx = document.getElementById("myChart").getContext("2d");
-var myChart = new Chart(ctx, {
-  type: "polarArea",
-  data: {
-    datasets: [
-      {
-        data: profilePoints,
-        backgroundColor: [
-          "rgba(75, 192, 192, 0.2)",
-          "rgba(255, 99, 132, 0.2)",
-          "rgba(255, 205, 86, 0.2)",
-        ],
-        borderColor: [
-          "rgba(75, 192, 192, 1)",
-          "rgba(255, 99, 132, 1)",
-          "rgba(255, 205, 86, 1)",
-        ],
-        borderWidth: 1,
-      },
-    ],
-    labels: profileLabels,
-  },
-  options: {
-    responsive: true,
-    maintainAspectRatio: false, // Cela empêchera le graphique de redimensionner automatiquement
-    plugins: {
-      legend: {
-        display: false,
-      },
-    },
-  },
-});
-
 function calculateUserProfile() {
   var maxScore = 0;
   var topProfiles = [];
 
-  // Iterate through the userScores object to find the profile with the highest score
-  for (var profile in userScores) {
-    if (userScores[profile] > maxScore) {
-      maxScore = userScores[profile];
-      topProfiles = [profile];
-    } else if (userScores[profile] === maxScore) {
-      // Si le profil a le même score que le score maximum, ajoutez-le à la liste des meilleurs profils
-      topProfiles.push(profile);
-    }
-  }
+  // Copiez les noms des profils et leurs scores dans un tableau
+  var profilesArray = Object.entries(userScores);
+
+  // Triez le tableau des profils par score décroissant
+  profilesArray.sort((a, b) => b[1] - a[1]);
+
+  // Obtenez le score maximum
+  maxScore = profilesArray[0][1];
+
+  // Obtenez tous les profils ayant le score maximum
+  topProfiles = profilesArray
+    .filter((profile) => profile[1] === maxScore)
+    .map((profile) => profile[0]);
 
   // Remplacez les tirets bas par des espaces et formatez les profils
   var formattedProfiles = topProfiles.map((profile) =>
-    profile.replace(/_/g, " ")
+    profile.replace(/_/g, " "),
   );
 
   // Affichez les profils avec le score le plus élevé dans l'élément HTML
   var profilInfoElement = document.getElementById("resultat");
+  var profileListElements = document.querySelectorAll("#profileList li");
 
   if (formattedProfiles.length === 1) {
     profilInfoElement.textContent =
-      "Vous êtes plutot : " + formattedProfiles[0];
+      "Vous êtes plutôt : " + formattedProfiles[0];
   } else {
-    profilInfoElement.textContent =
-      "Vous avez plusieurs profils possibles : " + formattedProfiles.join(", ");
+    profilInfoElement.textContent = "Vous avez plusieurs profils possibles : ";
   }
 
-  console.log(topProfiles);
   return topProfiles;
 }
 
 const onload = () => {
   const userProfile = calculateUserProfile();
-  console.log(userProfile);
+  const profileList = document.getElementById("profileList");
+  const profileImage = document.getElementById("profileImage");
+
+  // Supprimer les éléments existants de la liste et de l'image
+  //profileList.innerHTML = "";
+  //profileImage.innerHTML = "";
+
+  // Définir le poids de la police maximum et minimum
+  const maxFontWeight = 900;
+  const minFontWeight = 400;
+
+  // Définir la taille de la police pour les trois premiers éléments
+  const largerFontSize = "24px";
+
+  // Triez les profils par score décroissant
+  const sortedProfiles = Object.entries(userScores).sort((a, b) => b[1] - a[1]);
+
+  // Trouver le score maximum parmi tous les profils
+  const maxScore = sortedProfiles[0][1];
+
+  // Récupérer le nom du premier profil
+  const firstProfile = sortedProfiles[0][0];
+
+  // Créer et ajouter les éléments li pour chaque profil avec un poids de police dégradé
+  sortedProfiles.forEach(([profile, score], index) => {
+    const listItem = document.createElement("li");
+    // Calculer le poids de la police en fonction de la position du profil dans la liste triée
+    const fontWeight =
+      maxFontWeight -
+      (index / (sortedProfiles.length - 1)) * (maxFontWeight - minFontWeight);
+    listItem.style.fontWeight = fontWeight;
+
+    // Appliquer un style différent pour les trois premiers éléments
+    if (index < 3) {
+      listItem.style.fontWeight = "bold";
+      listItem.style.fontSize = largerFontSize;
+    }
+
+    listItem.textContent = `${score} : ${profile.replace(/_/g, " ")}`;
+    profileList.appendChild(listItem);
+  });
 };
 
-// Attachez la fonction onload à l'événement load du document
+// Attacher la fonction onload à l'événement load du document
 document.addEventListener("DOMContentLoaded", onload);

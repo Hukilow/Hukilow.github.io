@@ -108,7 +108,7 @@ input[type="range"] {
 #question-container .flower {
   display: block;
   margin-top: 4%;
-  margin-left: 3%;
+  margin-left: 4%;
 }
 
 .flower-part {
@@ -173,7 +173,7 @@ input[type="range"] {
 }
 
 .question .confirmerslider {
-  margin-left: 45%;
+  margin-left: 44%;
   margin-top: 10%;
   align-items: center;
   justify-content: center;
@@ -193,4 +193,76 @@ input[type="range"] {
   transform: scale(1.1);
   background-color: black;
   color: white;
+
+}
+
+@media only screen and (max-width: 600px) {
+  /* Ajoutez ce code pour les écrans de téléphone */
+
+  body {
+    padding: 20px;
+    /* Ajouter un peu d'espacement autour du contenu */
+  }
+
+  #question-container h1 {
+    font-size: 30px;
+    /* Réduire légèrement la taille du titre */
+  }
+
+  h2 {
+    font-size: 20px;
+    /* Réduire la taille des sous-titres */
+    margin: 15px;
+    /* Réduire l'espacement autour des sous-titres */
+  }
+
+  #question-container {
+    margin-top: 20px;
+    /* Réduire l'espacement au-dessus du conteneur de questions */
+  }
+
+  .slider-container {
+    width: 90%;
+    /* Utiliser une largeur plus grande pour le conteneur de curseur */
+  }
+
+  .input[type="range"] {
+    width: 100%;
+    /* Utiliser la largeur totale du conteneur pour le curseur */
+  }
+
+  .question button,
+  .question .confirmer,
+  .question .confirmerslider {
+    width: 80%;
+    /* Utiliser une largeur plus grande pour les boutons */
+    margin: 10px auto;
+    /* Centrer et espacer les boutons */
+    font-size: 16px;
+    /* Réduire légèrement la taille de la police */
+    min-width: initial;
+    /* Réinitialiser la largeur minimale */
+  }
+
+  .question .confirmer,
+  .question .confirmerslider {
+    width: 80%;
+    /* Utiliser une largeur plus grande pour les boutons */
+    margin: 60px auto;
+    /* Centrer et espacer les boutons */
+    font-size: 16px;
+    /* Réduire légèrement la taille de la police */
+    min-width: initial;
+    /* Réinitialiser la largeur minimale */
+  }
+
+  .flower {
+    max-width: 90%;
+  }
+
+  .flower-part {
+    width: 25px;
+    height: 25px;
+  }
+
 }

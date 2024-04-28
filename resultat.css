@@ -6,7 +6,10 @@ body {
   padding: 0;
 }
 
-#myChart {
-  margin: 5% 30% 30% 30%;
-  display: flex;
+#profileList {
+  list-style-type: none;
+  text-align: left;
+  display: inline-block;
 }
+
+@media only screen and (max-width: 600px) {}

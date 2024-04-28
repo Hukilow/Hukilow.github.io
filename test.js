@@ -1,37 +1,36 @@
-var userScores = {
-  Explorateur_aventureux: 0,
-  Jardinier_en_herbe: 0,
-  Admirateur_de_la_faune: 0,
-  Méditateur_naturel: 0,
-  Artiste_botanique: 0,
-  Explorateur_contemplatif: 0,
-  Citadin_vert: 0,
-  Écologiste_engagé: 0,
-  Curieux_des_sciences_naturelles: 0,
-  Apprenti_explorateur: 0,
+userScores = {
+  "Aventurier.ère": 0,
+  "Jardinier.ière_en_herbe": 0,
+  "Admirateur.rice_de_la_faune": 0,
+  "Méditateur.rice": 0,
+  "Artiste_passioné.e": 0,
+  "Contemplatif.ve": 0,
+  "Citadin.e_vert.e": 0,
+  "Écologiste_engagé.e": 0,
+  "Curieux.se_des_Sciences": 0,
+  "Apprenti.e_explorateur.rice": 0,
 };
 
 let sliderValue;
-function updateDosage(slider) {
-  var output = slider.closest(".question").querySelector(".output");
+function updateDosage(slider, questionElement) {
+  var output = questionElement.querySelector(".output");
   if (output) {
-    // output.innerText = "" + slider.value;
     sliderValue = slider.value;
-    updateFlowerParts(slider.value);
+    updateFlowerParts(questionElement, slider.value);
   } else {
     console.error("Output element not found");
   }
 }
 
-function updateFlowerParts(value) {
-  // Réinitialiser les classes
+function updateFlowerParts(questionElement, value) {
+  // Réinitialiser les classes de la question spécifique
   for (let i = 0; i <= 4; i++) {
-    document.getElementById("flower-part-" + i).classList.remove("full");
+    questionElement.querySelector("#flower-part-" + i).classList.remove("full");
   }
 
-  // Ajouter des classes en fonction de la valeur du curseur
+  // Ajouter des classes en fonction de la valeur du curseur de la question spécifique
   for (let i = 0; i < value; i++) {
-    document.getElementById("flower-part-" + i).classList.add("full");
+    questionElement.querySelector("#flower-part-" + i).classList.add("full");
   }
 }
 
