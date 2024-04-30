@@ -157,12 +157,20 @@ a {
 #description {
   text-align: justify;
   position: absolute;
-  top: 40%;
+  top: 44%;
   left: 5%;
   /* Adjusted left position */
   width: 30%;
   font-size: 1.5vw;
   /* Using viewport width for responsive font size */
+}
+
+#Diffprofils {
+  width: 100%;
+  left: 0;
+  text-align: center;
+  top: 120%;
+  font-size: 4vw;
 }
 
 #description1 {
@@ -202,7 +210,7 @@ a {
   padding-left: 10%;
   max-width: 90%;
   max-height: 100%;
-  margin-top: -5%;
+  margin-top: -10%;
 }
 
 /*img profiles*/
@@ -241,9 +249,10 @@ a {
 }
 
 .profilesdesc p {
+  position: relative;
+  left: 10%;
   max-width: 80%;
   text-align: center;
-  padding-left: 18%;
 }
 
 .profilesdesc a {

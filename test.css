@@ -22,6 +22,7 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  overflow: hidden;
 }
 
 #question-container h1 {
@@ -196,6 +197,42 @@ input[type="range"] {
 
 }
 
+#profileList {
+  margin-top: 5%;
+  margin-left: 60%;
+}
+
+#profileList li {
+  padding-top: 3%;
+  text-align: left;
+}
+
+#imgresult {
+  position: fixed;
+  bottom: 29%;
+  right: 45%;
+  width: 30%;
+  height: auto;
+}
+
+#hrefp,
+#hrefprofil {
+  left: 34%;
+  top: 65%;
+  position: fixed;
+  text-decoration: none;
+  display: block;
+  color: black;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+#hrefp:hover,
+#hrefprofil:hover {
+  transform: scale(1.1);
+  cursor: pointer
+}
+
 @media only screen and (max-width: 600px) {
   /* Ajoutez ce code pour les écrans de téléphone */
 
@@ -264,5 +301,42 @@ input[type="range"] {
     width: 25px;
     height: 25px;
   }
+
+  /* Ajoutez ce code pour les écrans de téléphone */
+
+  #profileList {
+    margin-left: 0%;
+    text-align: left;
+    /* Centrer le contenu */
+  }
+
+  #profileList li {
+    padding-top: 3%;
+  }
+
+  #imgresult {
+    right: 17%;
+    bottom: 10%;
+    position: fixed;
+    margin: 0 auto;
+    width: 70%;
+    max-width: 300px;
+    height: auto;
+    display: block;
+  }
+
+  #hrefp,
+  #hrefprofil {
+    left: -1%;
+    position: relative;
+    display: block;
+    margin-top: 75%;
+    text-align: center;
+    text-decoration: none;
+    color: black;
+    font-size: 16px;
+    font-weight: bold;
+  }
+
 
 }
