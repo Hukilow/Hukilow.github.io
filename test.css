@@ -238,7 +238,7 @@ input[type="range"] {
 
   body {
     padding: 20px;
-    /* Ajouter un peu d'espacement autour du contenu */
+    overflow: scroll;
   }
 
   #question-container h1 {
